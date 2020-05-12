@@ -121,28 +121,25 @@ function get_preloader(){
 
 <!--   Preloader     -->
 
-@php
+<?php
 function get_navbar(){
-@endphp
+?>
 <nav class="fixed-top">
     <div class="nav-wrapper">
         <a href="" class="brand-logo ml-2">UCR</a>
         <ul class="right hide-on-med-and-down mr-2">
-            @php
-                var current = $search;
-            @endphp
             <abbr title="Buscar">
-                <li class="<?= $search ?>">
+                <li class="nav-item {{ $about }}">
                     <a href="/search"><i class="material-icons">search</i></a>
                 </li>
             </abbr>
             <abbr title="Perfil">
-                <li class="$profile">
+                <li class="">
                     <a href="/"><i class="material-icons">person</i></a>
                 </li>
             </abbr>
             <abbr title="Videos">
-                <li class"$videos">
+                <li class"">
                     <a href=""><i class="material-icons">play_arrow</i></a>
                 </li>
             </abbr>
@@ -153,6 +150,6 @@ function get_navbar(){
     </div>
 </nav>
 
-@php
+<?php
 }
-@endphp
+?>
