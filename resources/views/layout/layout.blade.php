@@ -27,10 +27,12 @@
 
     <!--   Navbar     -->
 
-
     <nav class="fixed-top">
         <div class="nav-wrapper">
-            <a href="" class="brand-logo ml-2">UCR</a>
+            <a href="/" class="brand-logo">UCR</a>
+            <a href="#" data-target="side-bar" class="sidenav-trigger">
+                <i class="material-icons text-white">menu</i>
+            </a>
             <ul class="right hide-on-med-and-down mr-2">
                 <abbr title="Perfil">
                     <li class="{{ $profile }}">
@@ -54,6 +56,23 @@
         </div>
     </nav>
 
+    <ul class="sidenav" id="side-bar" style="height: 100%;">
+        <li class="{{ $profile }} mt-4">
+            <a href="/"><i class="material-icons">person</i> Mi perfil</a>
+        </li>
+        <li class="{{ $videos }}">
+            <a href="/watch"><i class="material-icons">play_arrow</i> Mis videos</a>
+        </li>
+        <li class="{{ $profiles }}">
+            <a href="/community"><i class="material-icons">people</i> Comunidad</a>
+        </li>
+        <li style="position: absolute; bottom: 20px !important;">
+            <a href="exit"><i class="material-icons">exit_to_app</i> Salir</a>
+        </li>
+    </ul>
+
+    <!--  Content  -->
+
     <div class="container-fluid p-2">
         @yield('content')
     </div>
@@ -74,8 +93,8 @@
             $('.loading-container').fadeOut(300);
             $('body').fadeIn(200);
 
-            var elems = document.querySelectorAll('.datepicker');
-            var instances = M.Datepicker.init(elems, {format:"dd-mm-yyyy"});
+            var elems = document.querySelectorAll('.sidenav');
+            var instances = M.Sidenav.init(elems);
         });
     </script>
 
