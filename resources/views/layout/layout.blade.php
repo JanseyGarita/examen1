@@ -23,8 +23,36 @@
 
     @php
     get_preloader();
-    get_navbar();
     @endphp
+
+    <!--   Navbar     -->
+
+
+    <nav class="fixed-top">
+        <div class="nav-wrapper">
+            <a href="" class="brand-logo ml-2">UCR</a>
+            <ul class="right hide-on-med-and-down mr-2">
+                <abbr title="Buscar">
+                    <li class="{{ $profiles }}">
+                        <a href="/profiles"><i class="material-icons">search</i></a>
+                    </li>
+                </abbr>
+                <abbr title="Perfil">
+                    <li class="{{ $profile }}">
+                        <a href="/"><i class="material-icons">person</i></a>
+                    </li>
+                </abbr>
+                <abbr title="Mis videos">
+                    <li class="{{ $videos }}">
+                        <a href="/watch"><i class="material-icons">play_arrow</i></a>
+                    </li>
+                </abbr>
+                <abbr title="Salir">
+                    <li><a href="mobile.html"><i class="material-icons">exit_to_app</i></a></li>
+                </abbr>
+            </ul>
+        </div>
+    </nav>
 
     <div class="container-fluid p-2">
         @yield('content')
@@ -118,38 +146,3 @@ function get_preloader(){
 @php
 }
 @endphp
-
-<!--   Preloader     -->
-
-<?php
-function get_navbar(){
-?>
-<nav class="fixed-top">
-    <div class="nav-wrapper">
-        <a href="" class="brand-logo ml-2">UCR</a>
-        <ul class="right hide-on-med-and-down mr-2">
-            <abbr title="Buscar">
-                <li class="nav-item {{ $about }}">
-                    <a href="/search"><i class="material-icons">search</i></a>
-                </li>
-            </abbr>
-            <abbr title="Perfil">
-                <li class="">
-                    <a href="/"><i class="material-icons">person</i></a>
-                </li>
-            </abbr>
-            <abbr title="Videos">
-                <li class"">
-                    <a href=""><i class="material-icons">play_arrow</i></a>
-                </li>
-            </abbr>
-            <abbr title="Salir">
-                <li><a href="mobile.html"><i class="material-icons">exit_to_app</i></a></li>
-            </abbr>
-        </ul>
-    </div>
-</nav>
-
-<?php
-}
-?>
