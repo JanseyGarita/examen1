@@ -32,11 +32,6 @@
         <div class="nav-wrapper">
             <a href="" class="brand-logo ml-2">UCR</a>
             <ul class="right hide-on-med-and-down mr-2">
-                <abbr title="Buscar">
-                    <li class="{{ $profiles }}">
-                        <a href="/profiles"><i class="material-icons">search</i></a>
-                    </li>
-                </abbr>
                 <abbr title="Perfil">
                     <li class="{{ $profile }}">
                         <a href="/"><i class="material-icons">person</i></a>
@@ -45,6 +40,11 @@
                 <abbr title="Mis videos">
                     <li class="{{ $videos }}">
                         <a href="/watch"><i class="material-icons">play_arrow</i></a>
+                    </li>
+                </abbr>
+                <abbr title="Comunidad">
+                    <li class="{{ $profiles }}">
+                        <a href="/community"><i class="material-icons">people</i></a>
                     </li>
                 </abbr>
                 <abbr title="Salir">
