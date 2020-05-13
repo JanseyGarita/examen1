@@ -15,25 +15,28 @@
 <div class="container info-card body-content">
     <div class="row flex-center" style="flex-direction: column;">
         <h3>Mi Información</h3>
-        <form class="col s12">
+        <form class="col s12" method="POST" action="{{ route('update') }}">
+            {{ csrf_field() }}
             <div class="row">
                 <div class="input-field col s6">
-                    <input id="user_name" type="text" class="validate" name="user_name" required>
+                    <input id="user_name" type="text" class="validate" name="user_name" required
+                        value="{{$profile->id}}">
                     <label for="user_name">Nombre</label>
                 </div>
                 <div class="input-field col s6">
-                    <input id="phone_number" type="tel" class="validate" name="phone_number" required>
+                    <input id="phone_number" type="tel" class="validate" name="phone_number" required
+                        value="{{$profile->user_name}}">
                     <label for="phone_number">Teléfono</label>
                 </div>
             </div>
             <div class="row">
                 <div class="input-field col s6">
-                    <input id="email" type="email" class="validate" name="mail" required>
+                    <input id="email" type="email" class="validate" name="mail" required value="{{$profile->mail}}">
                     <label for="email">Email</label>
                 </div>
                 <div class="input-field col s6">
-                    <input id="password" type="password" class="validate" name="user_password" required>
-                    <label for="password">Password</label>
+                    <input id="password" type="password" class="validate" name="user_password" required value="{{$profile->user_password}}>
+                    <label for=" password">Password</label>
                 </div>
             </div>
             <button class="btn waves-effect waves-light" type="submit" name="action">Guardar
