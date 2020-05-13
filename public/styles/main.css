@@ -84,9 +84,18 @@ nav {
     background-color: #00897b !important;
 }
 
+.active {
+    position: relative;
+    background-color: #00695c !important;
+}
 
-@media (min-width: 1024px){
-    .brand-logo{
+.active::after{
+    position: absolute;
+    width: 100%;
+}
+
+@media (min-width: 1024px) {
+    .brand-logo {
         margin-left: 3em;
     }
 }
