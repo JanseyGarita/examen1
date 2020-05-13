@@ -26,35 +26,36 @@
     @endphp
 
     <!--   Navbar     -->
-
-    <nav class="fixed-top">
-        <div class="nav-wrapper">
-            <a href="/" class="brand-logo">UCR</a>
-            <a href="#" data-target="side-bar" class="sidenav-trigger">
-                <i class="material-icons text-white">menu</i>
-            </a>
-            <ul class="right hide-on-med-and-down mr-2">
-                <abbr title="Perfil">
-                    <li class="nav-link {{ $profile }}">
-                        <a href="/"><i class="material-icons">person</i></a>
-                    </li>
-                </abbr>
-                <abbr title="Mis videos">
-                    <li class="nav-link {{ $videos }}">
-                        <a href="/watch"><i class="material-icons">play_arrow</i></a>
-                    </li>
-                </abbr>
-                <abbr title="Comunidad">
-                    <li class="nav-link {{ $profiles }}">
-                        <a href="/community"><i class="material-icons">people</i></a>
-                    </li>
-                </abbr>
-                <abbr title="Salir">
-                    <li><a href="mobile.html"><i class="material-icons">exit_to_app</i></a></li>
-                </abbr>
-            </ul>
-        </div>
-    </nav>
+    <div class="navbar-fixed">
+        <nav>
+            <div class="nav-wrapper">
+                <a href="/" class="brand-logo">UCR</a>
+                <a href="#" data-target="side-bar" class="sidenav-trigger">
+                    <i class="material-icons text-white">menu</i>
+                </a>
+                <ul class="right hide-on-med-and-down mr-2">
+                    <abbr title="Perfil">
+                        <li class="nav-link {{ $profile }}">
+                            <a href="/"><i class="material-icons">person</i></a>
+                        </li>
+                    </abbr>
+                    <abbr title="Mis videos">
+                        <li class="nav-link {{ $videos }}">
+                            <a href="/watch"><i class="material-icons">play_arrow</i></a>
+                        </li>
+                    </abbr>
+                    <abbr title="Comunidad">
+                        <li class="nav-link {{ $profiles }}">
+                            <a href="/community"><i class="material-icons">people</i></a>
+                        </li>
+                    </abbr>
+                    <abbr title="Salir">
+                        <li><a href="/exit"><i class="material-icons">exit_to_app</i></a></li>
+                    </abbr>
+                </ul>
+            </div>
+        </nav>
+    </div>
 
     <ul class="sidenav" id="side-bar" style="height: 100%;">
         <li class="{{ $profile }} mt-4">
@@ -67,12 +68,12 @@
             <a href="/community"><i class="material-icons">people</i> Comunidad</a>
         </li>
         <li style="position: absolute; bottom: 20px !important;">
-            <a href="exit"><i class="material-icons">exit_to_app</i> Salir</a>
+            <a href="/exit"><i class="material-icons">exit_to_app</i> Salir</a>
         </li>
     </ul>
 
     <!--  Content  -->
-    
+
     @yield('content')
 
     @php
@@ -92,8 +93,8 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            $('.loading-container').fadeOut(300);
-            $('body').fadeIn(200);
+            $('.loading-container').fadeOut(400);
+            $('body').fadeIn(500);
 
             var elems = document.querySelectorAll('.sidenav');
             var instances = M.Sidenav.init(elems);

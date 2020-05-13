@@ -3,25 +3,61 @@
 @section('content')
 
 <div class="container body-content">
-    <div class="row flex-center m-2 p-2">
-        <div class="col s12 flex-center">
-            <nav id="search-nav">
-                <div class="nav-wrapper">
-                    <form>
-                        <div class="input-field">
-                            <input id="search" type="search" required>
-                            <label class="label-icon" for="search"><i class="material-icons">search</i></label>
-                            <i class="material-icons">close</i>
-                        </div>
-                    </form>
+    <div class="row flex-center m-2">
+        <div class="card" style="width: 100%;">
+            <div class="card-body flex-center" style="flex-direction: column;">
+                <h5 style="margin-top: 1em">Buscar usuarios</h5>
+                <div class="row container">
+                    <div class="input-field col s9 m10">
+                        <input type="text" id="autocomplete-input" class="autocomplete">
+                        <label for="autocomplete-input">Nombre del usuario</label>
+                    </div>
+                    <div class="col s3 m2">
+                        <a class="btn-floating btn-medium waves-effect waves-light mt-2">
+                            <i class="material-icons prefix">search</i>
+                        </a>
+                    </div>
                 </div>
-            </nav>
+            </div>
         </div>
+    </div>
+    <div class="row users-container">
+        <div class="col s12 m6 l4">
+            <div class="card" style="padding: 1em 0 2em 0;">
+                <div class="card-body flex-center" style="flex-direction: column; padding: 0.5em; text-align: center;">
+                    <h5 style="padding-bottom: 0.4em;">Jansey Garita</h5>
+                    <a class="waves-effect waves-light btn-small">
+                        <i class="material-icons left">remove_red_eye</i>
+                        Ver
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="col s12 m6 l4">
+            <div class="card" style="padding: 1em 0 2em 0;">
+                <div class="card-body flex-center" style="flex-direction: column; padding: 0.5em; text-align: center;">
+                    <h5 style="padding-bottom: 0.4em;">Armando Madriz</h5>
+                    <a class="waves-effect waves-light btn-small">
+                        <i class="material-icons left">remove_red_eye</i>
+                        Ver
+                    </a>
+                </div>
+            </div>
+        </div>
+
     </div>
 </div>
 
 @endsection
 
 @section('scripts')
-    
+<script>
+    $list = null;
+
+    $(document).ready(function(){
+    $('input.autocomplete').autocomplete({
+      data: $list
+    });
+  });
+</script>
 @endsection

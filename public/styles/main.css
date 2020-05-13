@@ -10,7 +10,20 @@ body {
     margin: 0;
 }
 
-.body-content{
+body::-webkit-scrollbar {
+    width: 12px; /* Tamaño del scroll en vertical */
+    height: 8px; /* Tamaño del scroll en horizontal */
+}
+body::-webkit-scrollbar-thumb {
+    background: #636b6f;
+    border-radius: 4px;
+}
+body::-webkit-scrollbar-thumb:hover {
+    background: #7c868b;
+    box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.2);
+}
+
+.body-content {
     min-height: calc(100vh - 214px);
 }
 

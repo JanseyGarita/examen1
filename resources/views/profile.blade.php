@@ -18,21 +18,21 @@
         <form class="col s12">
             <div class="row">
                 <div class="input-field col s6">
-                    <input id="first_name" type="text" class="validate" required>
+                    <input id="first_name" type="text" class="validate" name="user_name" required>
                     <label for="first_name">Nombre</label>
                 </div>
                 <div class="input-field col s6">
-                    <input id="last_name" type="tel" class="validate" required>
+                    <input id="last_name" type="tel" class="validate" name="phone" required>
                     <label for="last_name">Teléfono</label>
                 </div>
             </div>
             <div class="row">
                 <div class="input-field col s6">
-                    <input id="email" type="email" class="validate" required>
+                    <input id="email" type="email" class="validate" name="mail" required>
                     <label for="email">Email</label>
                 </div>
                 <div class="input-field col s6">
-                    <input id="password" type="password" class="validate" required>
+                    <input id="password" type="password" class="validate" name="user_password" required>
                     <label for="password">Password</label>
                 </div>
             </div>

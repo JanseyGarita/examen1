@@ -1,10 +1,22 @@
 @extends('layout.layout')
 
 @section('content')
-<div class="container body-content">
+<div class="container body-content mt-2">
     <div class="row form container">
         <form action="" method="post">
-
+            <div class="card">
+                <div class="card-content">
+                    <h5 class="center-align">Agregar videos</h5>
+                    <div class="input-field mt-2">
+                        <input type="url" id="video_url" name="video_url">
+                        <label for="video_url">YouTube URL</label>
+                    </div>
+                    <button class="btn waves-effect waves-light" type="submit" name="action">
+                        Agregar
+                        <i class="material-icons right">save</i>
+                    </button>
+                </div>
+            </div>
         </form>
     </div>
     <div class="row video-cards-container">
@@ -31,8 +43,8 @@
 @endsection
 
 @php
-    function get_video_name($video_id){
-    $title = explode('</title>',explode('<title>',file_get_contents("https://www.youtube.com/watch?v=".$video_id))[1])[0];
-        echo substr($title,0,-10);
+function get_video_name($video_id){
+$title = explode('</title>',explode('<title>',file_get_contents("https://www.youtube.com/watch?v=".$video_id))[1])[0];
+    echo substr($title,0,-10);
     }
-@endphp
+    @endphp
