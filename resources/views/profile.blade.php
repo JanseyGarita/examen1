@@ -16,6 +16,7 @@
         <h3>Mi Información</h3>
         <form class="col s12" method="POST" action="{{ route('update') }}">
             {{ csrf_field() }}
+            <input id="id" type="text" hidden name="id" required value="{{$profile->id}}">
             <div class="row">
                 <div class="input-field col s6">
                     <input id="user_name" type="text" class="validate" name="user_name" required

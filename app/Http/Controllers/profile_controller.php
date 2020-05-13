@@ -29,7 +29,7 @@ class profile_controller
         $profile->phone = $request->phone_number;
         $profile->user_password = $request->user_password;
         $profile->save();
-        return view('profile',$this->get_active_nav_item(0));//back();
+        return view('profile', compact('profile'), $this->get_active_nav_item(0));
     }
 
     function insert_video(Request $request)
@@ -53,11 +53,14 @@ class profile_controller
         //Set cookie
         //setcookie('user', 'USER_ID', time() + (24 * 60 * 60));
         setcookie('user', 1, time() + (24 * 60 * 60));
+        $profile = App\Profile::find($_COOKIE['user']);
+        // return $profile->all();
+        return view('profile', compact('profile'), $this->get_active_nav_item(0));
 
         //Delete cookie
         //setcookie('user', '', time() - 1000);
         //unset($_COOKIE['user']);
-        return view('profile',$this->get_active_nav_item(1));
+        // return view('profile',$this->get_active_nav_item(1));
     }
 
     function logout()

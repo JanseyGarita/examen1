@@ -7,7 +7,7 @@ Route::get('/community', 'routes_controller@get_profiles');
 Route::get('/watch', 'routes_controller@get_videos');
 
 
-Route::post('/', 'profile_controller@update')->name('update');
+Route::post('/profile', 'profile_controller@update')->name('update');
 
 
 Route::get('/prueba', 'routes_controller@get_prueba');
