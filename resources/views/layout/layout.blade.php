@@ -19,7 +19,7 @@
     @yield('links')
 </head>
 
-<body>
+<body style="position: relative;">
 
     @php
     get_preloader();
@@ -35,17 +35,17 @@
             </a>
             <ul class="right hide-on-med-and-down mr-2">
                 <abbr title="Perfil">
-                    <li class="{{ $profile }}">
+                    <li class="nav-link {{ $profile }}">
                         <a href="/"><i class="material-icons">person</i></a>
                     </li>
                 </abbr>
                 <abbr title="Mis videos">
-                    <li class="{{ $videos }}">
+                    <li class="nav-link {{ $videos }}">
                         <a href="/watch"><i class="material-icons">play_arrow</i></a>
                     </li>
                 </abbr>
                 <abbr title="Comunidad">
-                    <li class="{{ $profiles }}">
+                    <li class="nav-link {{ $profiles }}">
                         <a href="/community"><i class="material-icons">people</i></a>
                     </li>
                 </abbr>
@@ -73,9 +73,11 @@
 
     <!--  Content  -->
 
-    <div class="container-fluid p-2">
-        @yield('content')
-    </div>
+    @yield('content')
+
+    @php
+    get_footer();
+    @endphp
 
     <!-- Scripts -->
 
@@ -162,6 +164,28 @@ function get_preloader(){
     </div>
 </div>
 
+@php
+}
+@endphp
+
+
+<!--  Footer  -->
+
+@php
+function get_footer(){
+@endphp
+<footer class="container-fluid p-2"
+    style="background: #263238; text-align: center; width: 100%; position: absolute; bottom: 0;">
+    <p class="text-uppercase text-light" style="color: #ccc;">
+        Reservados todos los derechos
+        <script>
+            document.write(new Date().getFullYear());
+        </script>
+    </p>
+    <p class="text-uppercase" style="color: #ddd;">
+        Desarrollado por: Jansey Garita
+    </p>
+</footer>
 @php
 }
 @endphp
