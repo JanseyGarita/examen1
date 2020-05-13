@@ -3,7 +3,7 @@
 @section('content')
 
 <div class="container body-content">
-<table class="table">
+<table class="table highlight">
   <thead>
     <tr>
       <th scope="col">#id</th>
@@ -15,7 +15,7 @@
   <tbody>
   @foreach($profiles as $item)
     <tr>
-      <th scope="row">{{$item->id_profile}}</th>
+      <th scope="row">{{$item->id}}</th>
         <td>
           <a href="{{ route('detalle', $item) }}">
             {{$item->user_name}}

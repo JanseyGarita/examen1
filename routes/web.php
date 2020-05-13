@@ -9,4 +9,4 @@ Route::get('/watch','routes_controller@get_videos');
 
 
 Route::get('/prueba','routes_controller@get_prueba');
-Route::get('/prueba/{id_profile?}','routes_controller@get_detalle')->name('detalle');
+Route::get('/detalle/{id?}','routes_controller@get_detalle')->name('detalle');

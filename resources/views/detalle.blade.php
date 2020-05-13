@@ -4,7 +4,7 @@
 
 <div class="container body-content">
 
-      <h1 scope="row">{{$profile->id_profile}}</h1>
+      <h1 scope="row">{{$profile->id}}</h1>
 
             <h2>{{$profile->user_name}}</h2>
 
