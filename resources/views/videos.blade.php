@@ -19,12 +19,17 @@
             </div>
         </form>
     </div>
+
     <div class="row video-cards-container">
         <div class="col s12 m6 l4">
             <div class="card">
                 <div class="card-image">
                     <div class="video-container">
-                        <iframe width="560" height="315" src="https://www.youtube.com/embed/APjVO-COYog" frameborder="0"
+                        <?php
+                            $link = "https://www.youtube.com/watch?v=rLm_aSP369M&list=RDn_H5fhBoeJU&index=2";
+                        ?>
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/<?=get_video_id($link)?>"
+                            frameborder="0"
                             allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
                             allowfullscreen></iframe>
                     </div>
@@ -33,7 +38,7 @@
                 </div>
                 <div class="card-content">
                     @php
-                    echo get_video_name('APjVO-COYog');
+                    echo get_video_name(get_video_id($link));
                     @endphp
                 </div>
             </div>
@@ -42,9 +47,17 @@
 </div>
 @endsection
 
-@php
+<?php
 function get_video_name($video_id){
 $title = explode('</title>',explode('<title>',file_get_contents("https://www.youtube.com/watch?v=".$video_id))[1])[0];
     echo substr($title,0,-10);
+}
+
+function get_video_id($URL){
+    $YouTubeCheck = preg_match('![?&]{1}v=([^&]+)!', $URL . '&', $Data);
+    If($YouTubeCheck){
+        $VideoID = $Data[1];
     }
-    @endphp
+    return $VideoID;
+}
+?>
