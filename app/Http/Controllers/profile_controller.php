@@ -50,12 +50,12 @@ class profile_controller
 
         //Set cookie
         //setcookie('user', 'USER_ID', time() + (24 * 60 * 60));
-
+        setcookie('user', 1, time() + (24 * 60 * 60));
 
         //Delete cookie
             //setcookie('user', '', time() - 1000);
             //unset($_COOKIE['user']);
-
+return view('profile');
 
     }
 
