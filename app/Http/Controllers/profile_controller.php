@@ -29,6 +29,21 @@ class profile_controller
         $profile->phone = $request->phone_number;
         $profile->user_password = $request->user_password;
         $profile->save();
-        return view('detalle', compact('profile'), $this->get_active_nav_item(0));
+        return back();
     }
+
+     function insert_video(Request $request){
+        $request->validate([
+            'id_profile' => 'required',
+            'url' => 'required'
+        ]);
+
+        $video = new App\Video;
+        $video->url = $request->url;
+        $video->id_profile = $request->id_profile;
+
+        $video->save();
+        return back();
+    }
+
 }

@@ -14,7 +14,6 @@
 
 <div class="container info-card body-content">
     <div class="row flex-center" style="flex-direction: column;">
-        <h3>Mi Información</h3>
         <form class="col s12" method="POST" action="{{ route('update') }}">
         {{ csrf_field() }}
         <input id="id" type="text" hidden name="id" required value="{{$profile->id}}">
@@ -41,6 +40,8 @@
             <button class="btn waves-effect waves-light" type="submit" name="action">Guardar
                 <i class="material-icons right">save</i>
             </button>
+            <a class="btn waves-effect waves-light" href="{{route('videos', $profile)}}">Ver videos
+            </a>
         </form>
     </div>
 </div>

@@ -41,6 +41,12 @@ class routes_controller extends Controller
     public function get_detalle($id)
     {
         $profile = App\Profile::find($id);
-        return view('detalle', compact('profile'), $this->get_active_nav_item(1));
+        return view('detalle', compact('profile'), $this->get_active_nav_item(0));
     }
+    public function get_videos2($id)
+    {
+        $videos = App\Video::where('id_profile', $id);
+        return view('videos2', compact('videos'), $this->get_active_nav_item(2));
+    }
+    // ------------------------------------------------------------------------------------------------
 }
