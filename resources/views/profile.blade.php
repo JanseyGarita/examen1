@@ -1,7 +1,7 @@
 @extends('layout.layout')
 
 @section('links')
-    <link rel="stylesheet" href="styles/profile.css">
+<link rel="stylesheet" href="styles/profile.css">
 @endsection
 
 @section('content')
@@ -38,6 +38,9 @@
                     <label for="password">Password</label>
                 </div>
             </div>
+            <button class="btn waves-effect waves-light" type="submit" name="action">Guardar 
+                <i class="material-icons right">save</i>
+            </button>
         </form>
     </div>
 </div>
