@@ -20,9 +20,9 @@ class routes_controller extends Controller
     {
         return view('profiles', $this->get_active_nav_item(1));
     }
-    public function get_profile($id)
+    public function get_profile()
     {
-        $profile = App\Profile::find($id);
+        $profile = App\Profile::find($_COOKIE['user']);
         return view('profile', compact('profile'), $this->get_active_nav_item(0));
         //return view('profile', $this->get_active_nav_item(0));
     }

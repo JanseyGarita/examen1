@@ -7,7 +7,7 @@ use App;
 
 class profile_controller
 {
-/*
+    /*
     function get_active_nav_item($item)
     {
         $output = [
@@ -32,7 +32,8 @@ class profile_controller
         return back();
     }
 
-     function insert_video(Request $request){
+    function insert_video(Request $request)
+    {
         $request->validate([
             'id_profile' => 'required',
             'url' => 'required'
@@ -46,17 +47,17 @@ class profile_controller
         return back();
     }
 
-    function login(){
+    function login()
+    {
 
         //Set cookie
         //setcookie('user', 'USER_ID', time() + (24 * 60 * 60));
         setcookie('user', 1, time() + (24 * 60 * 60));
 
         //Delete cookie
-            //setcookie('user', '', time() - 1000);
-            //unset($_COOKIE['user']);
-return view('profile');
-
+        //setcookie('user', '', time() - 1000);
+        //unset($_COOKIE['user']);
+        return view('profile');
     }
 
     function logout()
@@ -65,5 +66,4 @@ return view('profile');
         unset($_COOKIE['user']);*/
         return view('login');
     }
-
 }
