@@ -7,7 +7,7 @@ use App;
 
 class profile_controller
 {
-    /*
+    
     function get_active_nav_item($item)
     {
         $output = [
@@ -16,7 +16,7 @@ class profile_controller
             ['profiles' => '', 'profile' => '', 'videos' => 'active']
         ];
         return $output[$item];
-    }*/
+    }
 
 
     public function update(Request $request)
@@ -57,7 +57,7 @@ class profile_controller
         //Delete cookie
         //setcookie('user', '', time() - 1000);
         //unset($_COOKIE['user']);
-        return view('profile');
+        return view('profile',$this->get_active_nav_item(1));
     }
 
     function logout()

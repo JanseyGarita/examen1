@@ -19,12 +19,12 @@
             <div class="row">
                 <div class="input-field col s6">
                     <input id="user_name" type="text" class="validate" name="user_name" required
-                        value="{{$profile->id}}">
+                        value="{{$profile->user_name}}">
                     <label for="user_name">Nombre</label>
                 </div>
                 <div class="input-field col s6">
                     <input id="phone_number" type="tel" class="validate" name="phone_number" required
-                        value="{{$profile->user_name}}">
+                        value="{{$profile->phone}}">
                     <label for="phone_number">Teléfono</label>
                 </div>
             </div>
@@ -34,7 +34,7 @@
                     <label for="email">Email</label>
                 </div>
                 <div class="input-field col s6">
-                    <input id="password" type="password" class="validate" name="user_password" required value="{{$profile->user_password}}>
+                    <input id="password" type="password" class="validate" name="user_password" required value="{{$profile->user_password}}">
                     <label for=" password">Password</label>
                 </div>
             </div>
