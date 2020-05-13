@@ -33,7 +33,8 @@
             </div>
             <div class="row forms-container flex-center">
                 <div id="log-in" class="col s12">
-                    <form class="container flex-center"
+                    <form class="container flex-center" method="POST" action="{{ route('login') }}">
+                        {{ csrf_field() }}
                         style="position: relative; width: 100%; flex-direction: column;">
                         <div class="row" style="width: 80%;">
                             <div class="input-field col s12">

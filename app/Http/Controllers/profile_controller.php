@@ -46,7 +46,7 @@ class profile_controller
         return back();
     }
 
-    function insert_user(){
+    function login(){
 
         //Set cookie
         //setcookie('user', 'USER_ID', time() + (24 * 60 * 60));
