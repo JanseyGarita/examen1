@@ -72,7 +72,7 @@
     </ul>
 
     <!--  Content  -->
-
+    
     @yield('content')
 
     @php
@@ -175,7 +175,7 @@ function get_preloader(){
 function get_footer(){
 @endphp
 <footer class="container-fluid p-2"
-    style="background: #263238; text-align: center; width: 100%; position: absolute; bottom: 0;">
+    style="background: #263238; text-align: center; width: 100%; position: relative; bottom: 0;">
     <p class="text-uppercase text-light" style="color: #ccc;">
         Reservados todos los derechos
         <script>
@@ -183,7 +183,7 @@ function get_footer(){
         </script>
     </p>
     <p class="text-uppercase" style="color: #ddd;">
-        Desarrollado por: Jansey Garita
+        Desarrollado por: Jansey Garita y Armando Madriz
     </p>
 </footer>
 @php

@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,sBAAsB,CAAA;EAClB,OAAO,EAAE,IAAI;EACb,SAAS,EAAE,IAAI;CAClB",
+    "sources": [
+        "watch-styles.scss"
+    ],
+    "names": [],
+    "file": "watch-styles.css"
+}

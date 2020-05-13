@@ -12,7 +12,7 @@
     </path>
 </svg>
 
-<div class="container info-card">
+<div class="container info-card body-content">
     <div class="row flex-center" style="flex-direction: column;">
         <h3>Mi Información</h3>
         <form class="col s12">

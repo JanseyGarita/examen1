@@ -2,7 +2,7 @@
 
 @section('content')
 
-<div class="container">
+<div class="container body-content">
     <div class="row flex-center m-2 p-2">
         <div class="col s12 flex-center">
             <nav id="search-nav">
