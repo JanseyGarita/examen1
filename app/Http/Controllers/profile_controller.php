@@ -29,7 +29,7 @@ class profile_controller
         $profile->phone = $request->phone_number;
         $profile->user_password = $request->user_password;
         $profile->save();
-        return back();
+        return view('profile',$this->get_active_nav_item(0));//back();
     }
 
     function insert_video(Request $request)
