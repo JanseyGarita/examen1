@@ -24,7 +24,8 @@ class routes_controller extends Controller
     {   
 
         $profile = App\Profile::find($_COOKIE['user']);
-        return $profile->all();
+        // return $profile->all();
+        return view('profile', compact('profile'), $this->get_active_nav_item(0));
         // return view('profile', compact('profile'), $this->get_active_nav_item(0));
         //return view('profile', $this->get_active_nav_item(0));
     }
