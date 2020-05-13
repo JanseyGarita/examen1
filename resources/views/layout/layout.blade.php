@@ -36,7 +36,7 @@
                 </a>
                 <ul class="right hide-on-med-and-down mr-2">
                     <abbr title="Perfil">
-                        <li class="nav-link {{ $profile }}">
+                        <li class="nav-link {{ $profile_class }}">
                             <a href="/"><i class="material-icons">person</i></a>
                         </li>
                     </abbr>
@@ -59,7 +59,7 @@
     </div>
 
     <ul class="sidenav" id="side-bar" style="height: 100%;">
-        <li class="{{ $profile }} mt-4">
+        <li class="{{ $profile_class }} mt-4">
             <a href="/"><i class="material-icons">person</i> Mi perfil</a>
         </li>
         <li class="{{ $videos }}">

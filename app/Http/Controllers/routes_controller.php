@@ -10,9 +10,9 @@ class routes_controller extends Controller
     function get_active_nav_item($item)
     {
         $output = [
-            ['profiles' => '', 'profile' => 'active', 'videos' => ''],
-            ['profiles' => 'active', 'profile' => '', 'videos' => ''],
-            ['profiles' => '', 'profile' => '', 'videos' => 'active']
+            ['profiles' => '', 'profile_class' => 'active', 'videos' => ''],
+            ['profiles' => 'active', 'profile_class' => '', 'videos' => ''],
+            ['profiles' => '', 'profile_class' => '', 'videos' => 'active']
         ];
         return $output[$item];
     }
