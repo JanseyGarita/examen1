@@ -6,6 +6,7 @@
     <div class="row flex-center m-2">
         <div class="card" style="width: 100%;">
             <div class="card-body flex-center" style="flex-direction: column;">
+
                 <h5 style="margin-top: 1em">Buscar usuarios</h5>
                 <div class="row container">
                     <div class="input-field col s9 m10">
@@ -18,6 +19,7 @@
                         </a>
                     </div>
                 </div>
+
             </div>
         </div>
     </div>

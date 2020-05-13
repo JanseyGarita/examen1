@@ -5,7 +5,12 @@
     <div class="row form container">
         <form action="" method="post">
             <div class="card">
-                <div class="card-content">
+
+                <?php
+
+                    if(true){
+                        ?>
+                <div class="card-content p-2">
                     <h5 class="center-align">Agregar videos</h5>
                     <div class="input-field mt-2">
                         <input type="url" id="video_url" name="video_url">
@@ -15,8 +20,18 @@
                         Agregar
                         <i class="material-icons right">save</i>
                     </button>
+                    <?php
+                }else{
+    ?>
+                    <div class="card-body flex-center p-2" style="flex-direction: column;">
+                        <h4 style="margin-top: 1em">Jansey Garita</h4>
+                        <p>88888888 | janseygarita@gmail.com</p>
+
+                        <?php
+                }
+    ?>
+                    </div>
                 </div>
-            </div>
         </form>
     </div>
 
