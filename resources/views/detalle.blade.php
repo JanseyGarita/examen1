@@ -1,5 +1,9 @@
 @extends('layout.layout')
 
+@section('links')
+
+@endsection
+
 @section('content')
 
 <div class="container body-content">

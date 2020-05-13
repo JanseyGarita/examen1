@@ -18,12 +18,12 @@
         <form class="col s12">
             <div class="row">
                 <div class="input-field col s6">
-                    <input id="first_name" type="text" class="validate" name="user_name" required>
-                    <label for="first_name">Nombre</label>
+                    <input id="user_name" type="text" class="validate" name="user_name" required>
+                    <label for="user_name">Nombre</label>
                 </div>
                 <div class="input-field col s6">
-                    <input id="last_name" type="tel" class="validate" name="phone" required>
-                    <label for="last_name">Teléfono</label>
+                    <input id="phone_number" type="tel" class="validate" name="phone_number" required>
+                    <label for="phone_number">Teléfono</label>
                 </div>
             </div>
             <div class="row">
