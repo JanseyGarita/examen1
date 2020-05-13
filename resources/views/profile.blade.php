@@ -1,7 +1,7 @@
 @extends('layout.layout')
 
 @section('links')
-
+    <link rel="stylesheet" href="styles/profile.css">
 @endsection
 
 @section('content')
@@ -13,7 +13,8 @@
 </svg>
 
 <div class="container info-card">
-    <div class="row">
+    <div class="row flex-center" style="flex-direction: column;">
+        <h3>Mi Información</h3>
         <form class="col s12">
             <div class="row">
                 <div class="input-field col s6">
