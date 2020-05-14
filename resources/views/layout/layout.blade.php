@@ -34,7 +34,7 @@
                 <a href="#" data-target="side-bar" class="sidenav-trigger">
                     <i class="material-icons text-white">menu</i>
                 </a>
-                <ul class="right hide-on-med-and-down mr-2">
+                <ul class="right hide-on-med-and-down mr-2" style="min-width: 300px;">
                     <abbr title="Perfil">
                         <li class="nav-link {{ $profile_class }}">
                             <a href="/"><i class="material-icons">person</i></a>

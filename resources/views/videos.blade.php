@@ -45,9 +45,7 @@ foreach ($videos as $v) {
             <div class="card">
                 <div class="card-image">
                     <div class="video-container">
-
-                        <iframe width="560" height="315" src="https://www.youtube.com/embed/<?=$v['url']?>"
-                            frameborder="0"
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/<?=$v['url']?>" frameborder="0"
                             allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
                             allowfullscreen></iframe>
                     </div>

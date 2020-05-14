@@ -65,8 +65,8 @@ class profile_controller
 
     function logout()
     {
-        /*setcookie('user', '', time() - 1000);
-        unset($_COOKIE['user']);*/
+        setcookie('user', '', time() - 1000);
+        unset($_COOKIE['user']);
         return view('login');
     }
 }
