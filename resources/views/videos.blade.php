@@ -51,10 +51,14 @@ foreach ($videos as $v) {
                             allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
                             allowfullscreen></iframe>
                     </div>
-                    <a href="/delete_video?id_video=<?=$v['id_video']?>"
-                        class="btn-floating halfway-fab waves-effect waves-light red">
-                        <i class="material-icons">delete</i><!-- $v['id_video'] -->
-                    </a>
+                    <form method="POST" action="{{ route('delete_video') }}">
+                        {{ csrf_field() }}
+                        <input type="hidden" name="video_id" value="<?=$v['id_video']?>">
+                        <button class="btn-floating halfway-fab waves-effect waves-light red">
+                            <i class="material-icons">delete</i><!-- $v['id_video'] -->
+                        </button>
+                    </form>
+
                 </div>
                 <div class="card-content">
                     @php

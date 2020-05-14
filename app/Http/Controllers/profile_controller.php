@@ -33,16 +33,21 @@ class profile_controller
     }
 
 
-    function get_video_id($URL){
+    function get_video_id($URL)
+    {
         $YouTubeCheck = preg_match('![?&]{1}v=([^&]+)!', $URL . '&', $Data);
-        If($YouTubeCheck){
+        if ($YouTubeCheck) {
             $VideoID = $Data[1];
         }
         return $VideoID;
     }
 
-    function delete_video($id){
-        App\Video::destroy($id);
+    function delete_video(Request $request)
+    {
+        $request->validate([
+            'video_id' => 'required'
+        ]);
+        App\Video::destroy($request->video_id);
         return back();
     }
 
