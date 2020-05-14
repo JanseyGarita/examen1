@@ -62,6 +62,25 @@ class profile_controller
         return back();
     }
 
+    function insert_perfil(Request $request)
+    {
+        $request->validate([
+            'user_name' => 'required',
+            'phone' => 'required',
+            'mail' => 'required',
+            'user_password' => 'required'
+        ]);
+
+        $profile = new App\Video;
+        $profile->user_name = $request->user_name;
+        $profile->phone = $request->phone;
+        $profile->mail = $request->mail;
+        $profile->user_password = $request->user_password;
+
+        $profile->save();
+        return back();
+    }
+
     function login(Request $data)
     {
         //Obtener el id del usuario        
