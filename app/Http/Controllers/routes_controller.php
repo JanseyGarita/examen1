@@ -18,7 +18,8 @@ class routes_controller extends Controller
     }
     public function get_profiles()
     {
-        return view('profiles', $this->get_active_nav_item(1));
+        $profiles = App\Profile::all();
+        return view('community', compact('profiles'), $this->get_active_nav_item(1));
     }
     public function get_profile()
     {   
