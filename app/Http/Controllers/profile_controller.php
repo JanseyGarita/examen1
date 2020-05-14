@@ -62,7 +62,7 @@ class profile_controller
         return back();
     }
 
-    function insert_perfil(Request $request)
+    function insert_profile(Request $request)
     {
         $request->validate([
             'user_name' => 'required',
@@ -71,14 +71,15 @@ class profile_controller
             'user_password' => 'required'
         ]);
 
-        $profile = new App\Video;
+        $profile = new App\Profile;
         $profile->user_name = $request->user_name;
         $profile->phone = $request->phone;
         $profile->mail = $request->mail;
         $profile->user_password = $request->user_password;
 
         $profile->save();
-        return back();
+        setcookie('user', $profile->id, time() + (24 * 60 * 60));
+        return view('profile', compact('profile'), $this->get_active_nav_item(0));
     }
 
     function login(Request $data)
