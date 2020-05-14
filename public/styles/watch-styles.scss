@@ -1,4 +1,16 @@
-.video-cards-container{
+/*.video-cards-container {
     display: flex;
     flex-wrap: wrap;
+}*/
+
+.breadcrumbs-nav {
+    .nav-wrapper .col {
+
+        .breadcrumb {
+            color: #333 !important;
+            &::before {
+                color: #333 !important;
+            }
+        }
+    }
 }

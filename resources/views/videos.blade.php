@@ -1,8 +1,33 @@
 @extends('layout.layout')
 
+@section('links')
+<link rel="stylesheet" href="/styles/watch-styles.css">
+@endsection
+
 @section('content')
 <div class="container body-content mt-2">
     <div class="row form container">
+
+        <?php
+
+        if(($isView == 'true')){
+                ?>
+
+        <nav class="breadcrumbs-nav" style="background: #fff !important;">
+            <div class="nav-wrapper">
+                <div class="col s12 flex-center">
+                    <a href="/community" class="breadcrumb">Comunidad</a>
+                    <a href="#!" class="breadcrumb"><?=$user->user_name?></a>
+                </div>
+            </div>
+        </nav>
+
+        <?php
+                }
+                
+    ?>
+
+
         <form method="POST" action="{{ route('insert_video') }}">
             {{ csrf_field() }}
             <div class="card">
@@ -43,7 +68,7 @@
 foreach ($videos as $v) {
 
     ?>
-        <div class="col s12 m6 l4">
+        <div class="col s12 m6 l4 flecx-center">
             <div class="card">
                 <div class="card-image">
                     <div class="video-container">

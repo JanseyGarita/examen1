@@ -1,8 +1,12 @@
-.video-cards-container {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
+/*.video-cards-container {
+    display: flex;
+    flex-wrap: wrap;
+}*/
+.breadcrumbs-nav .nav-wrapper .col .breadcrumb {
+  color: #333 !important;
+}
+
+.breadcrumbs-nav .nav-wrapper .col .breadcrumb::before {
+  color: #333 !important;
 }
 /*# sourceMappingURL=watch-styles.css.map */
