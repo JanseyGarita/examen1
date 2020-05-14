@@ -15,6 +15,7 @@ Route::get('/delete_video/{id}/delete','profile_controller@delete_video');
 
 Route::post('/profile', (isset($_COOKIE['user']) ? 'profile_controller@update' : 'routes_controller@get_login'))->name('update');
 Route::post('/profile/{id?}', (isset($_COOKIE['user']) ? 'profile_controller@get_view_profile' : 'routes_controller@get_login'))->name('view_profile');
+Route::post('/login', (!isset($_COOKIE['user']) ? 'routes_controller@get_login' : 'profile_controller@insert_profile'))->name('insert_profile');
 
 Route::get('/login', (!isset($_COOKIE['user']) ? 'routes_controller@get_login' : 'routes_controller@get_profile'));
 Route::post('/login', (!isset($_COOKIE['user']) ? 'profile_controller@login' : 'routes_controller@get_login'))->name('login');

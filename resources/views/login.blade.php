@@ -69,7 +69,8 @@
                 </div>
                 <div id="sign-up" class="col s12">
                     <div class="row">
-                        <form class="col s12 flex-center" style="flex-direction: column;">
+                        <form class="col s12 flex-center" style="flex-direction: column;" action="{{ route('insert_profile') }}" method="POST">
+                            {{ csrf_field() }}
                             <div class="row">
                                 <div class="input-field col s6">
                                     <input id="user_name" type="text" class="validate">
