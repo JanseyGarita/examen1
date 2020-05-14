@@ -41,7 +41,7 @@
                         </li>
                     </abbr>
                     <abbr title="Mis videos">
-                        <li class="nav-link {{ $videos }}">
+                        <li class="nav-link {{ $watch }}">
                             <a href="/watch"><i class="material-icons">play_arrow</i></a>
                         </li>
                     </abbr>
@@ -62,7 +62,7 @@
         <li class="{{ $profile_class }} mt-4">
             <a href="/"><i class="material-icons">person</i> Mi perfil</a>
         </li>
-        <li class="{{ $videos }}">
+        <li class="{{ $watch }}">
             <a href="/watch"><i class="material-icons">play_arrow</i> Mis videos</a>
         </li>
         <li class="{{ $profiles }}">
