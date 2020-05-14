@@ -36,34 +36,34 @@
     </div>
 
     <div class="row video-cards-container">
+        <?php
+
+foreach ($videos as $v) {
+
+    ?>
         <div class="col s12 m6 l4">
             <div class="card">
                 <div class="card-image">
                     <div class="video-container">
-                        <?php
-                            $link = "https://www.youtube.com/watch?v=rLm_aSP369M&list=RDn_H5fhBoeJU&index=2";
-                        ?>
-                        <iframe width="560" height="315" src="https://www.youtube.com/embed/<?=get_video_id($link)?>"
+
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/<?=$v['url']?>"
                             frameborder="0"
                             allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
                             allowfullscreen></iframe>
                     </div>
-                    <a class="btn-floating halfway-fab waves-effect waves-light red"><i
-                            class="material-icons">delete</i></a>
+                    <a class="btn-floating halfway-fab waves-effect waves-light red">
+                        <i class="material-icons">delete</i><!-- $v['id_video'] -->
+                    </a>
                 </div>
                 <div class="card-content">
                     @php
-                    echo get_video_name(get_video_id($link));
+                    echo get_video_name($v['url']);
                     @endphp
                 </div>
             </div>
         </div>
         <?php
-        print_r($videos);
-   /* foreach ($videos as $v) {
-        print_r($v);
-        print_r('<br><br>');
-    }*/
+        }
         ?>
     </div>
 </div>
