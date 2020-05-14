@@ -32,16 +32,24 @@ class profile_controller
         return view('profile', compact('profile'), $this->get_active_nav_item(0));
     }
 
+
+    function get_video_id($URL){
+        $YouTubeCheck = preg_match('![?&]{1}v=([^&]+)!', $URL . '&', $Data);
+        If($YouTubeCheck){
+            $VideoID = $Data[1];
+        }
+        return $VideoID;
+    }
+
     function insert_video(Request $request)
     {
         $request->validate([
-            'id_profile' => 'required',
             'url' => 'required'
         ]);
 
         $video = new App\Video;
-        $video->url = $request->url;
-        $video->id_profile = $request->id_profile;
+        $video->url = $this->get_video_id($request->url);
+        $video->id_profile = $_COOKIE['user'];
 
         $video->save();
         return back();

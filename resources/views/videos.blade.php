@@ -3,7 +3,8 @@
 @section('content')
 <div class="container body-content mt-2">
     <div class="row form container">
-        <form action="" method="post">
+        <form method="POST" action="{{ route('insert_video') }}">
+            {{ csrf_field() }}
             <div class="card">
 
                 <?php
@@ -13,7 +14,7 @@
                 <div class="card-content p-2">
                     <h5 class="center-align">Agregar videos</h5>
                     <div class="input-field mt-2">
-                        <input type="url" id="video_url" name="video_url">
+                        <input type="url" id="video_url" name="url">
                         <label for="video_url">YouTube URL</label>
                     </div>
                     <button class="btn waves-effect waves-light" type="submit" name="action">
@@ -45,11 +46,13 @@ foreach ($videos as $v) {
             <div class="card">
                 <div class="card-image">
                     <div class="video-container">
-                        <iframe width="560" height="315" src="https://www.youtube.com/embed/<?=$v['url']?>" frameborder="0"
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/<?=$v['url']?>"
+                            frameborder="0"
                             allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
                             allowfullscreen></iframe>
                     </div>
-                    <a class="btn-floating halfway-fab waves-effect waves-light red">
+                    <a href="/delete_video?id_video=<?=$v['id_video']?>"
+                        class="btn-floating halfway-fab waves-effect waves-light red">
                         <i class="material-icons">delete</i><!-- $v['id_video'] -->
                     </a>
                 </div>
