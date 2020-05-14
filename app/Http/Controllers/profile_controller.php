@@ -7,7 +7,7 @@ use App;
 
 class profile_controller
 {
-    
+
     function get_active_nav_item($item)
     {
         $output = [
@@ -47,20 +47,19 @@ class profile_controller
         return back();
     }
 
-    function login()
+    function login(Request $data)
     {
-
-        //Set cookie
-        //setcookie('user', 'USER_ID', time() + (24 * 60 * 60));
-        setcookie('user', 1, time() + (24 * 60 * 60));
-        $profile = App\Profile::find($_COOKIE['user']);
-        // return $profile->all();
-        return view('profile', compact('profile'), $this->get_active_nav_item(0));
-
-        //Delete cookie
-        //setcookie('user', '', time() - 1000);
-        //unset($_COOKIE['user']);
-        // return view('profile',$this->get_active_nav_item(1));
+        //Obtener el id del usuario        
+        $user = App\Profile::whereColumn([
+            ['mail', '=', $data->user_mail],
+            ['user_password', '=', $data->user_password],
+        ])->limit(1)->get();
+        $id = 1;
+        print_r($user);
+        exit();
+        /*setcookie('user', $id, time() + (24 * 60 * 60));
+        $profile = App\Profile::find($id);*/
+        return view('profile', compact('profile'), ['reload' => false], $this->get_active_nav_item(0));
     }
 
     function logout()
