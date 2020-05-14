@@ -17,7 +17,7 @@
             <div class="nav-wrapper">
                 <div class="col s12 flex-center">
                     <a href="/community" class="breadcrumb">Comunidad</a>
-                    <a href="#!" class="breadcrumb"><?=$user->user_name?></a>
+                    <a href="#!" class="breadcrumb">Perfil</a>
                 </div>
             </div>
         </nav>
@@ -26,8 +26,6 @@
                 }
                 
     ?>
-
-
         <form method="POST" action="{{ route('insert_video') }}">
             {{ csrf_field() }}
             <div class="card">
