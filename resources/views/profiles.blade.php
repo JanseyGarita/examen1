@@ -24,28 +24,19 @@
         </div>
     </div>
     <div class="row users-container">
+    @foreach($profiles as $item)
         <div class="col s12 m6 l4">
             <div class="card" style="padding: 1em 0 2em 0;">
                 <div class="card-body flex-center" style="flex-direction: column; padding: 0.5em; text-align: center;">
-                    <h5 style="padding-bottom: 0.4em;">Jansey Garita</h5>
-                    <a class="waves-effect waves-light btn-small">
+                    <h5 style="padding-bottom: 0.4em;">{{$item->user_name}}</h5>
+                    <a class="waves-effect waves-light btn-small"  href="{{ route('detalle', $item) }}">
                         <i class="material-icons left">remove_red_eye</i>
                         Ver
                     </a>
                 </div>
             </div>
         </div>
-        <div class="col s12 m6 l4">
-            <div class="card" style="padding: 1em 0 2em 0;">
-                <div class="card-body flex-center" style="flex-direction: column; padding: 0.5em; text-align: center;">
-                    <h5 style="padding-bottom: 0.4em;">Armando Madriz</h5>
-                    <a class="waves-effect waves-light btn-small">
-                        <i class="material-icons left">remove_red_eye</i>
-                        Ver
-                    </a>
-                </div>
-            </div>
-        </div>
+        @endforeach()
 
     </div>
 </div>
