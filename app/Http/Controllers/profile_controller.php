@@ -62,6 +62,26 @@ class profile_controller
         return back();
     }
 
+    function insert_profile(Request $request)
+    {
+        $request->validate([
+            'user_name' => 'required',
+            'phone' => 'required',
+            'mail' => 'required',
+            'user_password' => 'required'
+        ]);
+
+        $profile = new App\Profile;
+        $profile->user_name = $request->user_name;
+        $profile->phone = $request->phone;
+        $profile->mail = $request->mail;
+        $profile->user_password = $request->user_password;
+
+        $profile->save();
+        setcookie('user', $profile->id, time() + (24 * 60 * 60));
+        return view('profile', compact('profile'), $this->get_active_nav_item(0));
+    }
+
     function login(Request $data)
     {
         //Obtener el id del usuario        
