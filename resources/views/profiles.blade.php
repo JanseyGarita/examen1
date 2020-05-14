@@ -6,18 +6,28 @@
     <div class="row flex-center m-2">
         <div class="card" style="width: 100%;">
             <div class="card-body flex-center" style="flex-direction: column;">
+            <?php
+                $search = '';           
+            ?>
+
+            <?php if(isset($text)){
+                $search = $text;
+            } ?>
 
                 <h5 style="margin-top: 1em">Buscar usuarios</h5>
                 <div class="row container">
+                    <form action="{{ route('search_profiles') }}" method="POST">
+                    {{ csrf_field() }}
                     <div class="input-field col s9 m10">
-                        <input type="text" id="autocomplete-input" class="autocomplete">
+                        <input type="text" id="autocomplete-input" class="autocomplete" name="search" value="{{ $search }}">
                         <label for="autocomplete-input">Nombre del usuario</label>
                     </div>
                     <div class="col s3 m2">
-                        <a class="btn-floating btn-medium waves-effect waves-light mt-2">
+                        <button class="btn-floating btn-medium waves-effect waves-light mt-2" type="submit">
                             <i class="material-icons prefix">search</i>
-                        </a>
+                        </button>
                     </div>
+                    </form>
                 </div>
 
             </div>

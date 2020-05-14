@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', (isset($_COOKIE['user']) ? 'routes_controller@get_profile' : 'routes_controller@get_login'))->name('profile');
 
 Route::get('/community', (isset($_COOKIE['user']) ? 'routes_controller@get_profiles' : 'routes_controller@get_login'));
+Route::post('/search', (isset($_COOKIE['user']) ? 'profile_controller@search_profiles' : 'routes_controller@get_login'))->name('search_profiles');
 
 Route::get('/watch', (isset($_COOKIE['user']) ? 'routes_controller@get_videos' : 'routes_controller@get_login'));
 Route::post('/videos', (isset($_COOKIE['user']) ? 'profile_controller@insert_video' : 'routes_controller@get_login'))->name('insert_video');

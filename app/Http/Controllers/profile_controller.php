@@ -83,9 +83,11 @@ class profile_controller
     }
 
     function search_profiles(Request $request){
-        $profiles = App\Profile::where('user_name', 'like', '%'.$request->search.'%')
+        $users = App\Profile::where('user_name', 'like', '%'.$request->search.'%')
         ->get();
-        return view('profiles', compact('users'), $this->get_active_nav_item(1, 'false', false));
+        $view = view('profiles', compact('users'), $this->get_active_nav_item(1, 'false', false))->with($request->search);
+        $view->text = $request->search;
+        return $view;
     }
 
     function login(Request $data)
