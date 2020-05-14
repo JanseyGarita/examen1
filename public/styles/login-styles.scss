@@ -34,8 +34,8 @@
         }
     }
 
-    .forms-container{
-        .col.active{
+    .forms-container {
+        .col.active {
             display: flex !important;
             flex-direction: column;
             justify-content: center;
@@ -44,9 +44,22 @@
         }
     }
 }
+svg {
+    position: absolute;
+    bottom: 0 !important;
+    z-index: 0;
+}
+
+@media (max-width: 1024px) {
+    .login-row {
+        width: 80%;
+        height: 80%;
+    }
+}
+
 @media (max-width: 480px) {
     .login-row {
-        width: 100%;
+        width: 90%;
         .tabs-row {
             left: 0 !important;
             .col .tabs li {
