@@ -58,6 +58,13 @@
                 </div>
             </div>
         </div>
+        <?php
+        print_r($videos);
+   /* foreach ($videos as $v) {
+        print_r($v);
+        print_r('<br><br>');
+    }*/
+        ?>
     </div>
 </div>
 @endsection

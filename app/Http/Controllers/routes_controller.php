@@ -31,7 +31,8 @@ class routes_controller extends Controller
     }
     public function get_videos()
     {
-        return view('videos', $this->get_active_nav_item(2));
+        $videos = App\Video::where('id', '=' ,$_COOKIE['user'])->get();
+        return view('videos', compact('videos'),$this->get_active_nav_item(2));
     }
 
 
