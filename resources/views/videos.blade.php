@@ -9,7 +9,7 @@
 
                 <?php
 
-                    if(true){
+                if(!($isView == 'true')){
                         ?>
                 <div class="card-content p-2">
                     <h5 class="center-align">Agregar videos</h5>
@@ -25,8 +25,8 @@
                 }else{
     ?>
                     <div class="card-body flex-center p-2" style="flex-direction: column;">
-                        <h4 style="margin-top: 1em">Jansey Garita</h4>
-                        <p>88888888 | janseygarita@gmail.com</p>
+                        <h4 style="margin-top: 1em"><?=$user->user_name?></h4>
+                        <p><?=$user->phone?> | <?=$user->mail?></p>
 
                         <?php
                 }
@@ -39,6 +39,7 @@
     <div class="row video-cards-container">
         <?php
 
+ 
 foreach ($videos as $v) {
 
     ?>
@@ -52,16 +53,23 @@ foreach ($videos as $v) {
                             allowfullscreen></iframe>
                     </div>
 
+                    <?php
+                    if(!($isView == 'true')){
+                    ?>
+
                     <a href="delete_video/<?=$v['id_video']?>/delete"
                         class="btn-floating halfway-fab waves-effect waves-light red">
                         <i class="material-icons">delete</i><!-- $v['id_video'] -->
                     </a>
-
+                    <?php
+}
+                    ?>
                 </div>
                 <div class="card-content">
                     @php
                     echo get_video_name($v['url']);
                     @endphp
+
                 </div>
             </div>
         </div>

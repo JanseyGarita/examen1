@@ -7,12 +7,12 @@ use App;
 
 class routes_controller extends Controller
 {
-    function get_active_nav_item($item)
+    function get_active_nav_item($item, $video_view, $id)
     {
         $output = [
-            ['profiles' => '', 'profile_class' => 'active', 'watch' => ''],
-            ['profiles' => 'active', 'profile_class' => '', 'watch' => ''],
-            ['profiles' => '', 'profile_class' => '', 'watch' => 'active']
+            ['profiles' => '', 'profile_class' => 'active', 'watch' => '', 'isView' => $video_view, 'user' => $id],
+            ['profiles' => 'active', 'profile_class' => '', 'watch' => '', 'isView' => $video_view, 'user' => $id],
+            ['profiles' => '', 'profile_class' => '', 'watch' => 'active', 'isView' => $video_view, 'user' => $id]
         ];
         return $output[$item];
     }
@@ -25,29 +25,35 @@ class routes_controller extends Controller
     public function get_profiles()
     {
         $users = App\Profile::all();
-        return view('profiles', compact('users'), $this->get_active_nav_item(1));
+        return view('profiles', compact('users'), $this->get_active_nav_item(1, 'false', false));
     }
     public function get_profile()
     {
 
         $profile = App\Profile::find($_COOKIE['user']);
-        // return $profile->all();
-        return view('profile', compact('profile'), $this->get_active_nav_item(0));
-        // return view('profile', compact('profile'), $this->get_active_nav_item(0));
-        //return view('profile', $this->get_active_nav_item(0));
+        return view('profile', compact('profile'), $this->get_active_nav_item(0, 'false', false));
     }
 
     public function get_view_profile($id)
     {
         $profile = App\Profile::find($id);
-        return view('profile', compact('profile'), $this->get_active_nav_item(0));
+        return view('profile', compact('profile'), $this->get_active_nav_item(0, 'false', false));
     }
 
     public function get_videos()
     {
         $videos = App\Video::where('id_profile', '=', $_COOKIE['user'])->get()->map(function ($user) {
             return collect($user)->only(['id_video', 'url']);
-        });;
-        return view('videos', compact('videos'), $this->get_active_nav_item(2));
+        });
+        return view('videos', compact('videos'), $this->get_active_nav_item(2, 'false', false));
+    }
+
+    public function user_view($id)
+    {
+        $videos = App\Video::where('id_profile', '=', $id)->get()->map(function ($user) {
+            return collect($user)->only(['id_video', 'url']);
+        });
+        $profile = App\Profile::find($id);
+        return view('videos', compact('videos'), $this->get_active_nav_item(2, 'true', $profile));
     }
 }

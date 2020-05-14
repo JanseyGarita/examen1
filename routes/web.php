@@ -10,6 +10,8 @@ Route::get('/community', (isset($_COOKIE['user']) ? 'routes_controller@get_profi
 
 Route::get('/watch', (isset($_COOKIE['user']) ? 'routes_controller@get_videos' : 'routes_controller@get_login'));
 Route::post('/videos', (isset($_COOKIE['user']) ? 'profile_controller@insert_video' : 'routes_controller@get_login'))->name('insert_video');
+//user/{id}/view
+Route::get('/user/{id}/view','routes_controller@user_view');
 
 Route::get('/delete_video/{id}/delete','profile_controller@delete_video');
 
