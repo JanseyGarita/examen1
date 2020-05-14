@@ -42,13 +42,24 @@ class profile_controller
         return $VideoID;
     }
 
-    function delete_video(Request $request)
+    function delete_video($id)
     {
-        $request->validate([
+        /*   $request->validate([
             'video_id' => 'required'
         ]);
         App\Video::destroy($request->video_id);
-        return back();
+        return back();*/
+
+        /*
+        $video = App\Video::find($id);
+
+        $video->delete($video->id);
+
+        return redirect()->back();*/
+
+
+        App\Video::where('id_video', $id)->delete();
+        return redirect()->back();
     }
 
     function insert_video(Request $request)

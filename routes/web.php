@@ -10,8 +10,8 @@ Route::get('/community', (isset($_COOKIE['user']) ? 'routes_controller@get_profi
 
 Route::get('/watch', (isset($_COOKIE['user']) ? 'routes_controller@get_videos' : 'routes_controller@get_login'));
 Route::post('/videos', (isset($_COOKIE['user']) ? 'profile_controller@insert_video' : 'routes_controller@get_login'))->name('insert_video');
-Route::post('/delete', (isset($_COOKIE['user']) ? 'profile_controller@delete_video' : 'routes_controller@get_login'))->name('delete_video');
-
+Route::delete('/delete_video/{id}', array('as' => 'video.destroy','uses' => 'Videocontroller@destroy'));
+Route::get('/delete_video/{id}/delete','profile_controller@delete_video');
 
 Route::post('/profile', (isset($_COOKIE['user']) ? 'profile_controller@update' : 'routes_controller@get_login'))->name('update');
 Route::post('/profile/{id?}', (isset($_COOKIE['user']) ? 'profile_controller@get_view_profile' : 'routes_controller@get_login'))->name('view_profile');
