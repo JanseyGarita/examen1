@@ -55,8 +55,7 @@
         @endforeach()
 
         <?php
-
-        if(count($users) == 0){
+        if(count($users) == 0 || $users[0]->id == json_decode($_COOKIE['user'])->id){
             ?>
         <div class="container-fluid flex-center">
             <h5 style="margin-top: 3.5em;">Sin coincidencias</h5>
