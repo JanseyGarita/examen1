@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -21,6 +20,11 @@
 </head>
 
 <body>
+
+    @php
+    get_preloader();
+    @endphp
+
     <div class="container-fluid login-section">
 
         <div class="row login-row">
@@ -69,7 +73,8 @@
                 </div>
                 <div id="sign-up" class="col s12">
                     <div class="row">
-                        <form class="col s12 flex-center" style="flex-direction: column;" action="{{ route('insert_profile') }}" method="POST">
+                        <form class="col s12 flex-center" style="flex-direction: column;"
+                            action="{{ route('insert_profile') }}" method="POST">
                             {{ csrf_field() }}
                             <div class="row">
                                 <div class="input-field col s6">
@@ -119,8 +124,75 @@
     <script>
         $(document).ready(function(){
             $('.tabs').tabs();
+            $('.loading-container').fadeOut(400);
+            $('body').fadeIn(500);
         });
     </script>
+
 </body>
 
 </html>
+
+
+<!--   Preloader     -->
+
+@php
+function get_preloader(){
+@endphp
+
+<div class="loading-container full-height flex-center full-width"
+    style="position: fixed; z-index: 1000; background-color: #fff;">
+    <div class="preloader-wrapper big active">
+        <div class="spinner-layer spinner-blue">
+            <div class="circle-clipper left">
+                <div class="circle"></div>
+            </div>
+            <div class="gap-patch">
+                <div class="circle"></div>
+            </div>
+            <div class="circle-clipper right">
+                <div class="circle"></div>
+            </div>
+        </div>
+
+        <div class="spinner-layer spinner-red">
+            <div class="circle-clipper left">
+                <div class="circle"></div>
+            </div>
+            <div class="gap-patch">
+                <div class="circle"></div>
+            </div>
+            <div class="circle-clipper right">
+                <div class="circle"></div>
+            </div>
+        </div>
+
+        <div class="spinner-layer spinner-yellow">
+            <div class="circle-clipper left">
+                <div class="circle"></div>
+            </div>
+            <div class="gap-patch">
+                <div class="circle"></div>
+            </div>
+            <div class="circle-clipper right">
+                <div class="circle"></div>
+            </div>
+        </div>
+
+        <div class="spinner-layer spinner-green">
+            <div class="circle-clipper left">
+                <div class="circle"></div>
+            </div>
+            <div class="gap-patch">
+                <div class="circle"></div>
+            </div>
+            <div class="circle-clipper right">
+                <div class="circle"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@php
+}
+@endphp
