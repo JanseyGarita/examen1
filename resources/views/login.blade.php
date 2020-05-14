@@ -36,7 +36,17 @@
                     <form class="container flex-center" style="position: relative; width: 100%; flex-direction: column;"
                         method="POST" action="{{ route('login') }}">
                         {{ csrf_field() }}
+                        <?php
+                        if(isset($message)){
+                            ?>
+                        <span class="red-text">
+                            Datos erróneos
+                        </span>
+                        <?php
+                        }
+                    ?>
                         <div class="row" style="width: 80%;">
+
                             <div class="input-field col s12">
                                 <input id="email" type="email" name="user_mail" class="validate" required>
                                 <label for="email">Correo</label>

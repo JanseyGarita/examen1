@@ -11,9 +11,9 @@ class profile_controller
     function get_active_nav_item($item)
     {
         $output = [
-            ['profiles' => '', 'profile_class' => 'active', 'videos' => ''],
-            ['profiles' => 'active', 'profile_class' => '', 'videos' => ''],
-            ['profiles' => '', 'profile_class' => '', 'videos' => 'active']
+            ['profiles' => '', 'profile_class' => 'active', 'watch' => ''],
+            ['profiles' => 'active', 'profile_class' => '', 'watch' => ''],
+            ['profiles' => '', 'profile_class' => '', 'watch' => 'active']
         ];
         return $output[$item];
     }
@@ -50,16 +50,20 @@ class profile_controller
     function login(Request $data)
     {
         //Obtener el id del usuario        
-        $user = App\Profile::whereColumn([
+        $user = App\Profile::where([
             ['mail', '=', $data->user_mail],
             ['user_password', '=', $data->user_password],
         ])->limit(1)->get();
-        $id = 1;
-        print_r($user);
-        exit();
-        /*setcookie('user', $id, time() + (24 * 60 * 60));
-        $profile = App\Profile::find($id);*/
-        return view('profile', compact('profile'), ['reload' => false], $this->get_active_nav_item(0));
+
+        if (count($user) == 0) {
+            return view('login', ['message' => true]); //
+        } else {
+            //Set the cookie
+            setcookie('user', $user[0]['id'], time() + (24 * 60 * 60));
+            $profile = App\Profile::find($user[0]['id']);
+            //return view
+            return view('profile', compact('profile'), $this->get_active_nav_item(0));
+        }
     }
 
     function logout()
