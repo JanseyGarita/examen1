@@ -27,8 +27,17 @@ class profile_controller
         $profile->user_name = $request->user_name;
         $profile->mail = $request->mail;
         $profile->phone = $request->phone_number;
-        $profile->user_password = $request->user_password;
+        $profile->user_password = md5($request->user_password);
         $profile->save();
+
+        $user = $profile;
+        $user->user_password = $request->user_password;
+        $user_json = json_encode($user);
+
+        setcookie('user', $user_json, time() + (24 * 60 * 60), "/");
+
+
+        $profile = $user;
         return view('profile', compact('profile'), $this->get_active_nav_item(0));
     }
 
@@ -56,7 +65,7 @@ class profile_controller
 
         $video = new App\Video;
         $video->url = $this->get_video_id($request->url);
-        $video->id_profile = $_COOKIE['user'];
+        $video->id_profile = json_decode($_COOKIE['user'])->id;
 
         $video->save();
         return back();
@@ -75,10 +84,17 @@ class profile_controller
         $profile->user_name = $request->user_name;
         $profile->phone = $request->phone;
         $profile->mail = $request->mail;
-        $profile->user_password = $request->user_password;
-
+        $profile->user_password = md5($request->user_password);
         $profile->save();
-        setcookie('user', $profile->id, time() + (24 * 60 * 60));
+
+        $user = $profile;
+        $user->user_password = $request->user_password;
+        $user_json = json_encode($user);
+
+        setcookie('user', $user_json, time() + (24 * 60 * 60));
+        $profile = $user;
+            
+        // setcookie('user', $profile->id, time() + (24 * 60 * 60));
         return view('profile', compact('profile'), $this->get_active_nav_item(0));
     }
 
@@ -92,18 +108,24 @@ class profile_controller
 
     function login(Request $data)
     {
-        //Obtener el id del usuario        
+        //Obtener el id del usuario  
+        $password_md5 = md5($data->user_password);    
         $user = App\Profile::where([
             ['mail', '=', $data->user_mail],
-            ['user_password', '=', $data->user_password],
+            ['user_password', '=', $password_md5],
         ])->limit(1)->get();
 
         if (count($user) == 0) {
             return view('login', ['message' => true]); //
         } else {
             //Set the cookie
-            setcookie('user', $user[0]['id'], time() + (24 * 60 * 60));
-            $profile = App\Profile::find($user[0]['id']);
+            $user = App\Profile::find($user[0]['id']);
+            $user->user_password = $data->user_password;
+            $user_json = json_encode($user);
+
+            setcookie('user', $user_json, time() + (24 * 60 * 60));
+
+            $profile = $user;
             //return view
             return view('profile', compact('profile'), $this->get_active_nav_item(0));
         }

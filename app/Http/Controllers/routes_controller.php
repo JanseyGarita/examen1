@@ -29,8 +29,9 @@ class routes_controller extends Controller
     }
     public function get_profile()
     {
+        $profile = App\Profile::find(json_decode($_COOKIE['user'])->id);
 
-        $profile = App\Profile::find($_COOKIE['user']);
+        $profile->user_password = json_decode($_COOKIE['user'])->user_password; 
         return view('profile', compact('profile'), $this->get_active_nav_item(0, 'false', false));
     }
 
@@ -42,7 +43,7 @@ class routes_controller extends Controller
 
     public function get_videos()
     {
-        $videos = App\Video::where('id_profile', '=', $_COOKIE['user'])->get()->map(function ($user) {
+        $videos = App\Video::where('id_profile', '=', json_decode($_COOKIE['user'])->id)->get()->map(function ($user) {
             return collect($user)->only(['id_video', 'url']);
         });
         return view('videos', compact('videos'), $this->get_active_nav_item(2, 'false', false));
