@@ -82,6 +82,12 @@ class profile_controller
         return view('profile', compact('profile'), $this->get_active_nav_item(0));
     }
 
+    function search_profiles(Request $request){
+        $profiles = App\Profile::where('user_name', 'like', '%'.$request->search.'%')
+        ->get();
+        return view('profiles', compact('users'), $this->get_active_nav_item(1, 'false', false));
+    }
+
     function login(Request $data)
     {
         //Obtener el id del usuario        
