@@ -10,9 +10,8 @@ Route::post('/profile', 'profile_controller@update')->name('update');
 
 Route::post('/profile/{id?}', 'profile_controller@get_view_profile')->name('view_profile');
 
-Route::get('/login', function () {
-    return view('login');
-});
+Route::get('/login', (!isset($_COOKIE['user'])? 'routes_controller@get_login':'routes_controller@get_profile'));
+
 Route::post('/login', 'profile_controller@login')->name('login');
 
 Route::get('/exit', 'profile_controller@logout');

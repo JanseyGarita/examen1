@@ -16,13 +16,19 @@ class routes_controller extends Controller
         ];
         return $output[$item];
     }
+
+    public function get_login()
+    {
+        return view('login');
+    }
+
     public function get_profiles()
     {
         $users = App\Profile::all();
         return view('profiles', compact('users'), $this->get_active_nav_item(1));
     }
     public function get_profile()
-    {   
+    {
 
         $profile = App\Profile::find($_COOKIE['user']);
         // return $profile->all();
@@ -32,37 +38,16 @@ class routes_controller extends Controller
     }
 
     public function get_view_profile($id)
-    {   
+    {
         $profile = App\Profile::find($id);
         return view('profile', compact('profile'), $this->get_active_nav_item(0));
     }
 
     public function get_videos()
     {
-        $videos = App\Video::where('id_profile', '=' ,$_COOKIE['user'])->get()->map(function ($user) {
-            return collect($user)->only(['id_video','url']);
-          });;
-        return view('videos', compact('videos'),$this->get_active_nav_item(2));
+        $videos = App\Video::where('id_profile', '=', $_COOKIE['user'])->get()->map(function ($user) {
+            return collect($user)->only(['id_video', 'url']);
+        });;
+        return view('videos', compact('videos'), $this->get_active_nav_item(2));
     }
-
-
-    //----------------------------------------------------------------------------------------
-
-    public function get_prueba()
-    {
-        $profiles = App\Profile::all();
-        return view('prueba', compact('profiles'), $this->get_active_nav_item(1));
-    }
-
-    public function get_detalle($id)
-    {
-        $profile = App\Profile::find($id);
-        return view('detalle', compact('profile'), $this->get_active_nav_item(0));
-    }
-    public function get_videos2($id)
-    {
-        $videos = App\Video::where('id_profile', $id);
-        return view('videos2', compact('videos'), $this->get_active_nav_item(2));
-    }
-    // ------------------------------------------------------------------------------------------------
 }
