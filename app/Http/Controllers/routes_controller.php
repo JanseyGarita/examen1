@@ -30,6 +30,13 @@ class routes_controller extends Controller
         // return view('profile', compact('profile'), $this->get_active_nav_item(0));
         //return view('profile', $this->get_active_nav_item(0));
     }
+
+    public function get_view_profile($id)
+    {   
+        $profile = App\Profile::find($id);
+        return view('profile', compact('profile'), $this->get_active_nav_item(0));
+    }
+
     public function get_videos()
     {
         $videos = App\Video::where('id_profile', '=' ,$_COOKIE['user'])->get()->map(function ($user) {
