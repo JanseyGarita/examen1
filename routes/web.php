@@ -21,6 +21,6 @@ Route::post('/profile/{id?}', (isset($_COOKIE['user']) ? 'profile_controller@get
 Route::post('/insert_profile', (isset($_COOKIE['user']) ? 'routes_controller@get_login' : 'profile_controller@insert_profile'))->name('insert_profile');
 
 Route::get('/login', (!isset($_COOKIE['user']) ? 'routes_controller@get_login' : 'routes_controller@get_profile'));
-Route::post('/login', (!isset($_COOKIE['user']) ? 'profile_controller@login' : 'routes_controller@get_login'))->name('login');
+Route::post('/login', (!isset($_COOKIE['user']) ? 'profile_controller@login' : 'routes_controller@get_profile'))->name('login');
 
 Route::get('/exit', (isset($_COOKIE['user']) ? 'profile_controller@logout' : 'routes_controller@get_login'));

@@ -36,7 +36,7 @@
     <div class="row users-container">
         @foreach($users as $item)
         <?php
-        if($item->id != $_COOKIE['user']){
+        if($item->id != json_decode($_COOKIE['user'])->id){
     ?>
         <div class="col s12 m6 l4">
             <div class="card" style="padding: 1em 0 2em 0;">
