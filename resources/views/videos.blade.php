@@ -57,7 +57,6 @@ foreach ($videos as $v) {
                         <i class="material-icons">delete</i><!-- $v['id_video'] -->
                     </a>
 
-
                 </div>
                 <div class="card-content">
                     @php

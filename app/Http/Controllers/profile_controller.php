@@ -44,20 +44,6 @@ class profile_controller
 
     function delete_video($id)
     {
-        /*   $request->validate([
-            'video_id' => 'required'
-        ]);
-        App\Video::destroy($request->video_id);
-        return back();*/
-
-        /*
-        $video = App\Video::find($id);
-
-        $video->delete($video->id);
-
-        return redirect()->back();*/
-
-
         App\Video::where('id_video', $id)->delete();
         return redirect()->back();
     }
